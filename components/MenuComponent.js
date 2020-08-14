@@ -1,27 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import { OPTIONS } from '../shared/options';
 
-function Menu(props) {
+class Menu extends Component {
 
-    const renderMenuItem = ({item}) => {
-        return (
-            <ListItem
-                title={item.name}
-                subtitle={item.description}
-                onPress={() => props.onPress(item.id)}
-                leftAvatar={{ source: require('./images/logo.png')}}
-            />
-        );
+    constructor(props) {
+        super(props);
+        this.state = {
+            options: OPTIONS
+        };
+    }
+
+    static navigationOptions = {
+        title: 'Menu'
     };
 
-    return (
-        <FlatList 
-            data={props.options}
-            renderItem={renderMenuItem}
-            keyExtractor={item => item.id.toString()}
-        />
-    );
+    render() {
+        const { navigate } = this.props.navigation;
+        const renderMenuItem = ({item}) => {
+            return (
+                <ListItem
+                    title={item.name}
+                    subtitle={item.description}
+                    onPress={() => navigate('OptionsInfo', { optionsId: item.id })}
+                    leftAvatar={{ source: require('./images/bagel.jpg')}}
+                />
+            );
+        };
+
+        return (
+            <FlatList
+                data={this.state.options}
+                renderItem={renderMenuItem}
+                keyExtractor={item => item.id.toString()}
+            />
+        );
+    }
 }
 
 export default Menu;

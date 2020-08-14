@@ -1,6 +1,14 @@
 export const OPTIONS = [
     {
         id: 0,
+        name: "Home",
+        image: "/images/bagel.jpg",
+        elevation: 1233,
+        featured: false,
+        description: "Spreading love one bagel at a time."
+    },
+    {
+        id: 1,
         name: "Food",
         image: "/images/bagel.jpg",
         elevation: 1233,
@@ -8,7 +16,7 @@ export const OPTIONS = [
         description: "Check out our unique bagels and sandwiches, or our specialty of the month."
     },
     {
-        id: 1,
+        id: 2,
         name:"Drinks",
         image: "/images/coffee1.jpg",
         elevation: 877,
@@ -16,7 +24,7 @@ export const OPTIONS = [
         description: "Enjoy our fresh brewed coffe, teas, and juices."
     },
     {
-        id: 2,
+        id: 3,
         name:"Order Online!",
         image: "/images/onlineorder.jpg",
         elevation: 2901,
